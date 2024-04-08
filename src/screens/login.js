@@ -3,7 +3,7 @@ import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, Touch
 import { color } from '../../bootstrap';
 // import OtpInput from '../components/common/otpInput';
 // import { validator } from '../validator';
-import FontAwesome, { SolidIcons, RegularIcons, BrandIcons } from 'react-native-fontawesome';
+// import FontAwesome, { SolidIcons, RegularIcons, BrandIcons } from 'react-native-fontawesome';
 // import axios from 'axios';
 // import { DOMAIN_URL } from '../constants';
 import { AuthContext } from '../../context';
@@ -16,7 +16,7 @@ const Login = (props) => {
   const [mobile_no, setMobile_no] = useState()
 
 
-  const { signIn } = useContext(AuthContext)
+  // const { signIn } = useContext(AuthContext)
   function getOtp() {
     // let a = validator('email','abc@ab.com')
     // console.log(a);
@@ -101,66 +101,13 @@ const Login = (props) => {
     // })
   }
   return (
-    <ScrollView style={{ backgroundColor: '#ffffff' }}>
-      <View style={styles.container}>
-        <Image
-          style={styles.tinyLogo}
-          source={{
-            uri: 'https://acadmoney-assets.s3.ap-south-1.amazonaws.com/logo/Text%2BLogo.png',
-          }}
-        />
-      </View>
-      <Text style={{ textAlign: 'center', fontWeight: '700', marginTop: 40, fontSize: 30, color: color.dark }}>
-        Login
-      </Text>
-      <Text style={{ color: color.grey, textAlign: 'center', marginBottom: 40 }}>Be a part of learners with <Text style={{ color: color.green }}> ACADMONEY</Text></Text>
-
-      <TextInput
-        value={name} onChangeText={setName}
-        style={{ marginHorizontal: 20, borderRadius: 10, borderColor: '#d8d8d8', borderWidth: 2, paddingLeft: 10, backgroundColor: otpField ? '#e9ecef' : 'white' }} placeholder='Name' editable={!otpField} />
-
-      <TextInput
-        value={email} onChangeText={setEmail}
-        keyboardType='email-address'
-        style={{ marginHorizontal: 20, borderRadius: 10, borderColor: '#d8d8d8', borderWidth: 2, marginTop: 15, paddingLeft: 10, backgroundColor: otpField ? '#e9ecef' : 'white' }} placeholder='Email' editable={!otpField} />
-
-      <TextInput
-        value={mobile_no} onChangeText={setMobile_no}
-        keyboardType='numeric'
-        style={{ marginHorizontal: 20, borderRadius: 10, borderColor: '#d8d8d8', borderWidth: 2, marginTop: 15, paddingLeft: 10, backgroundColor: otpField ? '#e9ecef' : 'white' }} editable={!otpField} placeholder='Mobile No.' />
-
-      {otpField && <>
-        {/* onPress={() => props.navigation.navigate('search', { data: { previousScreen: activeRoute, screenData: props.route.params && props.route.params.data ? props.route.params.data : {} } })}  */}
-        <TouchableWithoutFeedback onPress={() => { setOtpField(false) }} style={{ color: color.grey, fontSize: 12 }}><Text style={{ fontWeight: '700', textAlign: 'right', paddingHorizontal: 30, paddingVertical: 15 }}>Edit <FontAwesome icon={SolidIcons.pen} /></Text>
-        </TouchableWithoutFeedback>
-        {/* <Text>{otp}</Text> */}
-        {/* <OtpInput setValue={setOtpValue} /> */}
-      </>}
-
-      <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: 20 }}>
-        {otpField ?
-          <TouchableOpacity onPress={() => { onLogin() }} style={{ flex: 0.7, padding: 10, borderRadius: 10, backgroundColor: color.green }}>
-            <Text style={{ textAlign: 'center', fontSize: 20, color: 'white' }} >{'Login'}</Text>
-          </TouchableOpacity>
-          :
-          <TouchableOpacity onPress={() => { getOtp(); setOtpField(true) }} style={{ flex: 0.7, padding: 10, borderRadius: 10, backgroundColor: color.green }}>
-            <Text style={{ textAlign: 'center', fontSize: 20, color: 'white' }} >{'PROCEED'}</Text>
-          </TouchableOpacity>}
-      </View>
-
-      {otpField ?
-        <View style={{ marginTop: 15 }}>
-          <TouchableWithoutFeedback onPress={() => { resendOtp() }} >
-            <Text style={{ textAlign: 'center' }}>Didn't recieved code? <Text style={{ fontWeight: '700', color: color.green }}>Resend</Text></Text>
-          </TouchableWithoutFeedback>
-        </View>
-        :
-        <View style={{ marginTop: 15 }}>
-          <TouchableWithoutFeedback onPress={() => { props.navigation.navigate('login') }} >
-            <Text style={{ textAlign: 'center' }}>Already User? <Text style={{ fontWeight: '700', color: color.green }}>Login</Text></Text>
-          </TouchableWithoutFeedback>
-        </View>}
-
+    <ScrollView style={{backgroundColor:"blue"}}>
+      <Text>Open up App. login for grahsti your app!</Text>
+      <View style={{ marginTop: 15 }}>
+          <TouchableWithoutFeedback onPress={() => { props.navigation.navigate('register') }} >
+            <Text style={{ textAlign: 'center' }}>NO User? <Text style={{ fontWeight: '700', color: 'red' }}>Register</Text></Text>
+           </TouchableWithoutFeedback>
+       </View>
     </ScrollView>
   )
 }
